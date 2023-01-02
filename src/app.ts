@@ -128,18 +128,18 @@ console.log(`Pizza costs: ${cost}`);
 //
 // string type
 
-const coupon: string = 'pizza25'
+const coupon: string = "pizza25";
 
 function normalizeCoupon(code: string): string {
-  return code.toUpperCase()
+  return code.toUpperCase();
 }
 
-const couponMessage: string = `Final coupon is ${normalizeCoupon(coupon)}`
+const couponMessage: string = `Final coupon is ${normalizeCoupon(coupon)}`;
 
-console.log(couponMessage)
+console.log(couponMessage);
 
 // boolean type
-const pizzas1: number = 2
+const pizzas1: number = 2;
 
 function offerDiscount(orders: number): boolean {
   return orders >= 3;
@@ -147,7 +147,29 @@ function offerDiscount(orders: number): boolean {
 
 if (offerDiscount(pizzas1)) {
   console.log(`you're entitled to a discount!`);
-
 } else {
-  console.log(`order more than 3 pizzas for a discount!`)
+  console.log(`order more than 3 pizzas for a discount!`);
 }
+
+//
+// any type
+let coupon1: any;
+
+coupon1 = 25;
+coupon1 = "pizza24";
+coupon1 = true;
+
+// explicit & implicit
+let implicitCoupon = 'pizza15'
+let explicitCoupon: string = 'pizza12'
+
+// void type
+let selectedTopping: string = 'pepperoni'
+// impure function
+function selectTopping(topping: string): void {
+  selectedTopping = topping
+}
+
+selectTopping('bacon')
+
+console.log(selectedTopping)

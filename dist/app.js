@@ -91,7 +91,7 @@ var cost = calculatePrice(pizzaCost, pizzaToppings);
 console.log("Pizza costs: ".concat(cost));
 //
 // string type
-var coupon = 'pizza25';
+var coupon = "pizza25";
 function normalizeCoupon(code) {
     return code.toUpperCase();
 }
@@ -108,3 +108,20 @@ if (offerDiscount(pizzas1)) {
 else {
     console.log("order more than 3 pizzas for a discount!");
 }
+//
+// any type
+var coupon1;
+coupon1 = 25;
+coupon1 = "pizza24";
+coupon1 = true;
+// explicit & implicit
+var implicitCoupon = 'pizza15';
+var explicitCoupon = 'pizza12';
+// void type
+var selectedTopping = 'pepperoni';
+// impure function
+function selectTopping(topping) {
+    selectedTopping = topping;
+}
+selectTopping('bacon');
+console.log(selectedTopping);
