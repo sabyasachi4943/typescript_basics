@@ -63,14 +63,13 @@ var pizza = {
 // function order({ name, toppings }) {
 //   console.log(name, toppings);
 // }
-function order(_a) {
-    var pizzaName = _a.name, pizzaToppings = _a.toppings;
-    // console.log(pizzaName, pizzaToppings);
-    return { pizzaName: pizzaName, pizzaToppings: pizzaToppings };
-}
-order(pizza);
-var pizzaName = order(pizza).pizzaName;
-console.log(pizzaName);
+// function order({ name: pizzaName, toppings: pizzaToppings }) {
+//   // console.log(pizzaName, pizzaToppings);
+//   return { pizzaName, pizzaToppings };
+// }
+// order(pizza);
+// const { pizzaName } = order(pizza);
+// console.log(pizzaName);
 //
 // Array destructure
 var toppings = ["pepperoni", "bacon", "chilli"];
@@ -98,3 +97,14 @@ function normalizeCoupon(code) {
 }
 var couponMessage = "Final coupon is ".concat(normalizeCoupon(coupon));
 console.log(couponMessage);
+// boolean type
+var pizzas1 = 2;
+function offerDiscount(orders) {
+    return orders >= 3;
+}
+if (offerDiscount(pizzas1)) {
+    console.log("you're entitled to a discount!");
+}
+else {
+    console.log("order more than 3 pizzas for a discount!");
+}

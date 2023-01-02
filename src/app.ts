@@ -137,3 +137,17 @@ function normalizeCoupon(code: string): string {
 const couponMessage: string = `Final coupon is ${normalizeCoupon(coupon)}`
 
 console.log(couponMessage)
+
+// boolean type
+const pizzas1: number = 2
+
+function offerDiscount(orders: number): boolean {
+  return orders >= 3;
+}
+
+if (offerDiscount(pizzas1)) {
+  console.log(`you're entitled to a discount!`);
+
+} else {
+  console.log(`order more than 3 pizzas for a discount!`)
+}
