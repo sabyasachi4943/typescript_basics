@@ -1,10 +1,10 @@
 console.log("Hey there the TypeScript!");
 
-const pizzas = [{ name: 'Pepperoni', toppings: ['pepperoni'] }]
+const pizzas = [{ name: "Pepperoni", toppings: ["pepperoni"] }];
 
-const mappedPizzas = pizzas.map(pizza => pizza.name.toUpperCase())
+const mappedPizzas = pizzas.map((pizza) => pizza.name.toUpperCase());
 
-console.log(mappedPizzas)
+console.log(mappedPizzas);
 
 // const pizza = {
 //   name: 'Blazing Inferno',
@@ -15,15 +15,14 @@ console.log(mappedPizzas)
 
 // console.log(pizza.getName())
 
-
 // default parameters
 
-function multiply(a:number, b = 35) {
+function multiply(a: number, b = 35) {
   return a * b;
 }
 
-console.log(multiply(5))
-console.log(multiply(5, 25))
+console.log(multiply(5));
+console.log(multiply(5, 25));
 
 // es6 shorthand
 
@@ -50,8 +49,6 @@ console.log(multiply(5, 25))
 // }
 
 // console.log(createOrder(pizza, toppings))
-
-
 
 // rest parameter
 // function sumAll(arr) {
@@ -80,34 +77,32 @@ console.log(multiply(5, 25))
 
 // console.log(allToppings)
 
-// 
+//
 // destructure
 const pizza = {
-  name: 'Pepperoni',
-  toppings: ['pepperoni']
-}
+  name: "Pepperoni",
+  toppings: ["pepperoni"],
+};
 
 // function order({ name, toppings }) {
 //   console.log(name, toppings);
 // }
-function order({ name: pizzaName, toppings:pizzaToppings }) {
-  // console.log(pizzaName, pizzaToppings);
-  return { pizzaName, pizzaToppings}
-}
+// function order({ name: pizzaName, toppings: pizzaToppings }) {
+//   // console.log(pizzaName, pizzaToppings);
+//   return { pizzaName, pizzaToppings };
+// }
 
+// order(pizza);
 
-order(pizza);
+// const { pizzaName } = order(pizza);
+// console.log(pizzaName);
 
-const { pizzaName } = order(pizza);
-console.log(pizzaName)
-
-// 
+//
 // Array destructure
 
-const toppings = ['pepperoni', 'bacon', 'chilli']
+const toppings = ["pepperoni", "bacon", "chilli"];
 
-
-const [first, second, third] = toppings; 
+const [first, second, third] = toppings;
 console.log(first, second, third);
 
 function logToppings([first, second, third]: any) {
@@ -116,8 +111,7 @@ function logToppings([first, second, third]: any) {
 
 logToppings(toppings);
 
-
-// 
+//
 // primitive types in typescript
 
 const pizzaCost: number = 10;
@@ -127,6 +121,19 @@ function calculatePrice(cost: number, toppings: number): number {
   return cost + 1.5 * toppings;
 }
 
-const cost: number = calculatePrice(pizzaCost, pizzaToppings)
+const cost: number = calculatePrice(pizzaCost, pizzaToppings);
 
 console.log(`Pizza costs: ${cost}`);
+
+//
+// string type
+
+const coupon: string = 'pizza25'
+
+function normalizeCoupon(code: string): string {
+  return code.toUpperCase()
+}
+
+const couponMessage: string = `Final coupon is ${normalizeCoupon(coupon)}`
+
+console.log(couponMessage)

@@ -1,6 +1,6 @@
 "use strict";
 console.log("Hey there the TypeScript!");
-var pizzas = [{ name: 'Pepperoni', toppings: ['pepperoni'] }];
+var pizzas = [{ name: "Pepperoni", toppings: ["pepperoni"] }];
 var mappedPizzas = pizzas.map(function (pizza) { return pizza.name.toUpperCase(); });
 console.log(mappedPizzas);
 // const pizza = {
@@ -54,11 +54,11 @@ console.log(multiply(5, 25));
 // const newToppings = ['pepperoni']
 // const allToppings = [...toppings, ...newToppings]
 // console.log(allToppings)
-// 
+//
 // destructure
 var pizza = {
-    name: 'Pepperoni',
-    toppings: ['pepperoni']
+    name: "Pepperoni",
+    toppings: ["pepperoni"],
 };
 // function order({ name, toppings }) {
 //   console.log(name, toppings);
@@ -71,9 +71,9 @@ function order(_a) {
 order(pizza);
 var pizzaName = order(pizza).pizzaName;
 console.log(pizzaName);
-// 
+//
 // Array destructure
-var toppings = ['pepperoni', 'bacon', 'chilli'];
+var toppings = ["pepperoni", "bacon", "chilli"];
 var first = toppings[0], second = toppings[1], third = toppings[2];
 console.log(first, second, third);
 function logToppings(_a) {
@@ -81,7 +81,7 @@ function logToppings(_a) {
     console.log(first, second, third);
 }
 logToppings(toppings);
-// 
+//
 // primitive types in typescript
 var pizzaCost = 10;
 var pizzaToppings = 2;
@@ -90,3 +90,11 @@ function calculatePrice(cost, toppings) {
 }
 var cost = calculatePrice(pizzaCost, pizzaToppings);
 console.log("Pizza costs: ".concat(cost));
+//
+// string type
+var coupon = 'pizza25';
+function normalizeCoupon(code) {
+    return code.toUpperCase();
+}
+var couponMessage = "Final coupon is ".concat(normalizeCoupon(coupon));
+console.log(couponMessage);
