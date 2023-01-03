@@ -173,3 +173,28 @@ function selectTopping(topping: string): void {
 selectTopping('bacon')
 
 console.log(selectedTopping)
+
+
+// // 
+// // never type
+
+// function orderError(error: string): never {
+//   throw new Error(error);
+//   // never going to return a value
+// }
+
+// orderError('something went wrong')
+
+// 
+// null type
+let coupon2: string | null = 'pizza15'
+
+function removeCoupon(): void {
+  coupon2 = null;
+
+}
+
+console.log(coupon2)
+
+removeCoupon()
+console.log(coupon2);

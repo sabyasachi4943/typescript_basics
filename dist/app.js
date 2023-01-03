@@ -125,3 +125,19 @@ function selectTopping(topping) {
 }
 selectTopping('bacon');
 console.log(selectedTopping);
+// // 
+// // never type
+// function orderError(error: string): never {
+//   throw new Error(error);
+//   // never going to return a value
+// }
+// orderError('something went wrong')
+// 
+// null type
+var coupon2 = 'pizza15';
+function removeCoupon() {
+    coupon2 = null;
+}
+console.log(coupon2);
+removeCoupon();
+console.log(coupon2);
