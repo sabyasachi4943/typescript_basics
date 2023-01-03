@@ -258,11 +258,28 @@ console.log(`Total sum: ${sum4}`);
 //
 // object signature
 let pizza2: { name: string; price: number; getName(): string } = {
-  name: 'Plain old Pepperoni',
+  name: "Plain old Pepperoni",
   price: 20,
   getName() {
     return pizza2.name;
   },
-}
+};
 
-console.log(pizza2.getName())
+console.log(pizza2.getName());
+
+//
+// Collections most specifically array type
+// in array type the types are in front and outside of the third bracket
+let sizes: number[]
+
+sizes = [1, 2, 3]
+// generic type
+let toppings2: Array<string>;
+toppings2 = ["pepperoni", "bacon", "chilli"];
+
+
+// 
+// tuple type 
+// in tuple type the types are inside of the third bracket
+let pizza3: [string, number, boolean]
+pizza3 = ['pepperoni',20, true]
