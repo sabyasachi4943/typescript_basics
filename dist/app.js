@@ -141,3 +141,10 @@ function removeCoupon() {
 console.log(coupon2);
 removeCoupon();
 console.log(coupon2);
+// union type
+var pizzaSize = 'small';
+function selectSize(size) {
+    pizzaSize = size;
+}
+selectSize('large');
+console.log("pizza size: ".concat(pizzaSize));

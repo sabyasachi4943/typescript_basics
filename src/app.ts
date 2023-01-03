@@ -198,3 +198,14 @@ console.log(coupon2)
 
 removeCoupon()
 console.log(coupon2);
+
+// union type
+let pizzaSize: string = 'small'
+
+function selectSize(size: 'small' | 'medium' | 'large'): void{
+  pizzaSize = size;
+}
+
+selectSize('large')
+
+console.log(`pizza size: ${pizzaSize}`)
