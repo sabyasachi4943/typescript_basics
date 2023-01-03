@@ -282,4 +282,78 @@ toppings2 = ["pepperoni", "bacon", "chilli"];
 // tuple type 
 // in tuple type the types are inside of the third bracket
 let pizza3: [string, number, boolean]
-pizza3 = ['pepperoni',20, true]
+pizza3 = ['pepperoni', 20, true]
+
+
+// 
+// type alias
+type Size = 'small' | 'medium' | 'large'
+type Callback = (size: Size) => void;
+
+let pizzaSize2: Size = 'small';
+
+const selectSize2: Callback = x => {
+  pizzaSize = x;
+}
+
+selectSize2('medium');
+
+// 
+// type assertions
+type Pizza3 = { name: string, toppings: number }
+const pizza4: Pizza3 = { name: 'Blazing Inferno', toppings: 5 }
+
+const serialized = JSON.stringify(pizza4)
+
+// function getNameFromJSON(obj: string) {
+//   return (<Pizza3>JSON.parse(obj)).name;
+// }
+
+function getNameFromJSON(obj: string) {
+  return (JSON.parse(obj) as Pizza3).name;
+}
+getNameFromJSON(serialized)
+
+// 
+// enum type
+enum Sizes {
+  Small,
+  Medium,
+  Large,
+}
+
+enum Sizes {
+  ExtraLarge =3
+}
+
+const selectedSize = 2
+
+console.log(Sizes.Large, Sizes[Sizes.Large])
+
+console.log(Sizes[selectedSize])
+
+// 
+// enum Sizes2 {
+//   Small = 'small',
+//   Medium = 'medium',
+//   Large = 'large',
+
+// }
+
+
+// gives inline enum members
+const enum Sizes2 {
+  Small = "small",
+  Medium = "medium",
+  Large = "large",
+}
+
+let selected: Sizes2 = Sizes2.Small;
+
+function updateSize(size: Sizes2): void {
+  selected = size
+}
+
+updateSize(Sizes2.Medium)
+
+console.log(selected)

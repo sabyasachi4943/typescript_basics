@@ -184,10 +184,64 @@ console.log("Total sum: ".concat(sum4));
 //
 // object signature
 var pizza2 = {
-    name: 'Plain old Pepperoni',
+    name: "Plain old Pepperoni",
     price: 20,
     getName: function () {
         return pizza2.name;
     },
 };
 console.log(pizza2.getName());
+//
+// Collections most specifically array type
+// in array type the types are in front and outside of the third bracket
+var sizes;
+sizes = [1, 2, 3];
+// generic type
+var toppings2;
+toppings2 = ["pepperoni", "bacon", "chilli"];
+// 
+// tuple type 
+// in tuple type the types are inside of the third bracket
+var pizza3;
+pizza3 = ['pepperoni', 20, true];
+var pizzaSize2 = 'small';
+var selectSize2 = function (x) {
+    pizzaSize = x;
+};
+selectSize2('medium');
+var pizza4 = { name: 'Blazing Inferno', toppings: 5 };
+var serialized = JSON.stringify(pizza4);
+// function getNameFromJSON(obj: string) {
+//   return (<Pizza3>JSON.parse(obj)).name;
+// }
+function getNameFromJSON(obj) {
+    return JSON.parse(obj).name;
+}
+getNameFromJSON(serialized);
+// 
+// enum type
+var Sizes;
+(function (Sizes) {
+    Sizes[Sizes["Small"] = 0] = "Small";
+    Sizes[Sizes["Medium"] = 1] = "Medium";
+    Sizes[Sizes["Large"] = 2] = "Large";
+})(Sizes || (Sizes = {}));
+(function (Sizes) {
+    Sizes[Sizes["ExtraLarge"] = 3] = "ExtraLarge";
+})(Sizes || (Sizes = {}));
+var selectedSize = 2;
+console.log(Sizes.Large, Sizes[Sizes.Large]);
+console.log(Sizes[selectedSize]);
+// 
+var Sizes2;
+(function (Sizes2) {
+    Sizes2["Small"] = "small";
+    Sizes2["Medium"] = "medium";
+    Sizes2["Large"] = "large";
+})(Sizes2 || (Sizes2 = {}));
+var selected = Sizes2.Small;
+function updateSize(size) {
+    selected = size;
+}
+updateSize(Sizes2.Medium);
+console.log(selected);
