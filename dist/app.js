@@ -148,3 +148,18 @@ function selectSize(size) {
 }
 selectSize('large');
 console.log("pizza size: ".concat(pizzaSize));
+// 
+// functions
+function sumOrder(price, quantity) {
+    return price * quantity;
+}
+var sumOrder1 = function (price, quantity) {
+    return price * quantity;
+};
+var sumOrder2;
+// sumOrder2 = (price: number, quantity: number): number => {
+//   return price * quantity;
+// };
+sumOrder2 = function (x, y) { return x * y; };
+var sum = sumOrder(25, 5);
+console.log("Total sum: ".concat(sum));

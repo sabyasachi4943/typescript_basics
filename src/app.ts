@@ -209,3 +209,28 @@ function selectSize(size: 'small' | 'medium' | 'large'): void{
 selectSize('large')
 
 console.log(`pizza size: ${pizzaSize}`)
+
+// 
+// functions
+
+function sumOrder(price: number, quantity: number): number {
+  return price * quantity;
+
+}
+
+let sumOrder1 = (price: number, quantity: number): number => {
+  return price * quantity;
+
+}
+
+let sumOrder2: (price: number, quantity: number) => number;
+
+// sumOrder2 = (price: number, quantity: number): number => {
+//   return price * quantity;
+// };
+
+sumOrder2 = (x, y) => x * y;
+
+const sum = sumOrder(25, 5)
+
+console.log(`Total sum: ${sum}`);
