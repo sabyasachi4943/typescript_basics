@@ -160,22 +160,21 @@ coupon1 = "pizza24";
 coupon1 = true;
 
 // explicit & implicit
-let implicitCoupon = 'pizza15'
-let explicitCoupon: string = 'pizza12'
+let implicitCoupon = "pizza15";
+let explicitCoupon: string = "pizza12";
 
 // void type
-let selectedTopping: string = 'pepperoni'
+let selectedTopping: string = "pepperoni";
 // impure function
 function selectTopping(topping: string): void {
-  selectedTopping = topping
+  selectedTopping = topping;
 }
 
-selectTopping('bacon')
+selectTopping("bacon");
 
-console.log(selectedTopping)
+console.log(selectedTopping);
 
-
-// // 
+// //
 // // never type
 
 // function orderError(error: string): never {
@@ -185,43 +184,40 @@ console.log(selectedTopping)
 
 // orderError('something went wrong')
 
-// 
+//
 // null type
-let coupon2: string | null = 'pizza15'
+let coupon2: string | null = "pizza15";
 
 function removeCoupon(): void {
   coupon2 = null;
-
 }
 
-console.log(coupon2)
+console.log(coupon2);
 
-removeCoupon()
+removeCoupon();
 console.log(coupon2);
 
 // union type
-let pizzaSize: string = 'small'
+let pizzaSize: string = "small";
 
-function selectSize(size: 'small' | 'medium' | 'large'): void{
+function selectSize(size: "small" | "medium" | "large"): void {
   pizzaSize = size;
 }
 
-selectSize('large')
+selectSize("large");
 
-console.log(`pizza size: ${pizzaSize}`)
+console.log(`pizza size: ${pizzaSize}`);
 
-// 
+//
 // functions
 
 function sumOrder(price: number, quantity: number): number {
   return price * quantity;
-
 }
 
 let sumOrder1 = (price: number, quantity: number): number => {
   return price * quantity;
-
-}
+};
 
 let sumOrder2: (price: number, quantity: number) => number;
 
@@ -231,6 +227,42 @@ let sumOrder2: (price: number, quantity: number) => number;
 
 sumOrder2 = (x, y) => x * y;
 
-const sum = sumOrder(25, 5)
+const sum = sumOrder2(25, 5);
 
 console.log(`Total sum: ${sum}`);
+
+//
+// function with optional parameter
+
+let sumOrder3: (price: number, quantity?: number) => number;
+
+sumOrder3 = (x, y) => {
+  if (y) {
+    return x * y;
+  }
+  return x;
+};
+
+const sum3 = sumOrder3(25, 5);
+
+console.log(`Total sum: ${sum3}`);
+
+// way to add default parameter
+
+sumOrder3 = (x, y = 1) => x * y;
+
+const sum4 = sumOrder3(35);
+
+console.log(`Total sum: ${sum4}`);
+
+//
+// object signature
+let pizza2: { name: string; price: number; getName(): string } = {
+  name: 'Plain old Pepperoni',
+  price: 20,
+  getName() {
+    return pizza2.name;
+  },
+}
+
+console.log(pizza2.getName())

@@ -115,26 +115,26 @@ coupon1 = 25;
 coupon1 = "pizza24";
 coupon1 = true;
 // explicit & implicit
-var implicitCoupon = 'pizza15';
-var explicitCoupon = 'pizza12';
+var implicitCoupon = "pizza15";
+var explicitCoupon = "pizza12";
 // void type
-var selectedTopping = 'pepperoni';
+var selectedTopping = "pepperoni";
 // impure function
 function selectTopping(topping) {
     selectedTopping = topping;
 }
-selectTopping('bacon');
+selectTopping("bacon");
 console.log(selectedTopping);
-// // 
+// //
 // // never type
 // function orderError(error: string): never {
 //   throw new Error(error);
 //   // never going to return a value
 // }
 // orderError('something went wrong')
-// 
+//
 // null type
-var coupon2 = 'pizza15';
+var coupon2 = "pizza15";
 function removeCoupon() {
     coupon2 = null;
 }
@@ -142,13 +142,13 @@ console.log(coupon2);
 removeCoupon();
 console.log(coupon2);
 // union type
-var pizzaSize = 'small';
+var pizzaSize = "small";
 function selectSize(size) {
     pizzaSize = size;
 }
-selectSize('large');
+selectSize("large");
 console.log("pizza size: ".concat(pizzaSize));
-// 
+//
 // functions
 function sumOrder(price, quantity) {
     return price * quantity;
@@ -161,5 +161,33 @@ var sumOrder2;
 //   return price * quantity;
 // };
 sumOrder2 = function (x, y) { return x * y; };
-var sum = sumOrder(25, 5);
+var sum = sumOrder2(25, 5);
 console.log("Total sum: ".concat(sum));
+//
+// function with optional parameter
+var sumOrder3;
+sumOrder3 = function (x, y) {
+    if (y) {
+        return x * y;
+    }
+    return x;
+};
+var sum3 = sumOrder3(25, 5);
+console.log("Total sum: ".concat(sum3));
+// way to add default parameter
+sumOrder3 = function (x, y) {
+    if (y === void 0) { y = 1; }
+    return x * y;
+};
+var sum4 = sumOrder3(35);
+console.log("Total sum: ".concat(sum4));
+//
+// object signature
+var pizza2 = {
+    name: 'Plain old Pepperoni',
+    price: 20,
+    getName: function () {
+        return pizza2.name;
+    },
+};
+console.log(pizza2.getName());
