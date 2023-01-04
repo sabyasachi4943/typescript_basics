@@ -232,16 +232,18 @@ var Sizes;
 var selectedSize = 2;
 console.log(Sizes.Large, Sizes[Sizes.Large]);
 console.log(Sizes[selectedSize]);
-// 
-var Sizes2;
-(function (Sizes2) {
-    Sizes2["Small"] = "small";
-    Sizes2["Medium"] = "medium";
-    Sizes2["Large"] = "large";
-})(Sizes2 || (Sizes2 = {}));
-var selected = Sizes2.Small;
+var selected = "small" /* Sizes2.Small */;
 function updateSize(size) {
     selected = size;
 }
-updateSize(Sizes2.Medium);
+updateSize("medium" /* Sizes2.Medium */);
 console.log(selected);
+var pizza5;
+function createPizza(name, sizes) {
+    return {
+        name: name,
+        sizes: sizes,
+    };
+}
+pizza5 = createPizza('pepperoni', ['small', 'medium']);
+console.log(pizza5);

@@ -357,3 +357,24 @@ function updateSize(size: Sizes2): void {
 updateSize(Sizes2.Medium)
 
 console.log(selected)
+
+// 
+// interfaces
+
+interface PizzaInterface {
+  name: string;
+  sizes: string[];
+}
+
+let pizza5: PizzaInterface;
+
+function createPizza(name: string, sizes: string[]): PizzaInterface{
+  return {
+    name,
+    sizes,
+  }
+}
+
+pizza5 = createPizza('pepperoni', ['small', 'medium']);
+
+console.log(pizza5)
