@@ -270,40 +270,38 @@ console.log(pizza2.getName());
 //
 // Collections most specifically array type
 // in array type the types are in front and outside of the third bracket
-let sizes: number[]
+let sizes: number[];
 
-sizes = [1, 2, 3]
+sizes = [1, 2, 3];
 // generic type
 let toppings2: Array<string>;
 toppings2 = ["pepperoni", "bacon", "chilli"];
 
-
-// 
-// tuple type 
+//
+// tuple type
 // in tuple type the types are inside of the third bracket
-let pizza3: [string, number, boolean]
-pizza3 = ['pepperoni', 20, true]
+let pizza3: [string, number, boolean];
+pizza3 = ["pepperoni", 20, true];
 
-
-// 
+//
 // type alias
-type Size = 'small' | 'medium' | 'large'
+type Size = "small" | "medium" | "large";
 type Callback = (size: Size) => void;
 
-let pizzaSize2: Size = 'small';
+let pizzaSize2: Size = "small";
 
-const selectSize2: Callback = x => {
+const selectSize2: Callback = (x) => {
   pizzaSize = x;
-}
+};
 
-selectSize2('medium');
+selectSize2("medium");
 
-// 
+//
 // type assertions
-type Pizza3 = { name: string, toppings: number }
-const pizza4: Pizza3 = { name: 'Blazing Inferno', toppings: 5 }
+type Pizza3 = { name: string; toppings: number };
+const pizza4: Pizza3 = { name: "Blazing Inferno", toppings: 5 };
 
-const serialized = JSON.stringify(pizza4)
+const serialized = JSON.stringify(pizza4);
 
 // function getNameFromJSON(obj: string) {
 //   return (<Pizza3>JSON.parse(obj)).name;
@@ -312,9 +310,9 @@ const serialized = JSON.stringify(pizza4)
 function getNameFromJSON(obj: string) {
   return (JSON.parse(obj) as Pizza3).name;
 }
-getNameFromJSON(serialized)
+getNameFromJSON(serialized);
 
-// 
+//
 // enum type
 enum Sizes {
   Small,
@@ -323,23 +321,22 @@ enum Sizes {
 }
 
 enum Sizes {
-  ExtraLarge =3
+  ExtraLarge = 3,
 }
 
-const selectedSize = 2
+const selectedSize = 2;
 
-console.log(Sizes.Large, Sizes[Sizes.Large])
+console.log(Sizes.Large, Sizes[Sizes.Large]);
 
-console.log(Sizes[selectedSize])
+console.log(Sizes[selectedSize]);
 
-// 
+//
 // enum Sizes2 {
 //   Small = 'small',
 //   Medium = 'medium',
 //   Large = 'large',
 
 // }
-
 
 // gives inline enum members
 const enum Sizes2 {
@@ -351,14 +348,14 @@ const enum Sizes2 {
 let selected: Sizes2 = Sizes2.Small;
 
 function updateSize(size: Sizes2): void {
-  selected = size
+  selected = size;
 }
 
-updateSize(Sizes2.Medium)
+updateSize(Sizes2.Medium);
 
-console.log(selected)
+console.log(selected);
 
-// 
+//
 // interfaces
 
 // interface PizzaInterface {
@@ -379,12 +376,50 @@ console.log(selected)
 
 // console.log(pizza5)
 
-
-// 
+//
 // interfaces with functions
-interface PizzaInterface {
+// interface PizzaInterface {
+//   name: string;
+//   sizes: string[];
+//   getAvailableSizes(): string[];
+// }
+
+// let pizza5: PizzaInterface;
+
+// // one way
+// function createPizza(name: string, sizes: string[]): PizzaInterface {
+//   return {
+//     name,
+//     sizes,
+//     getAvailableSizes() {
+//       return this.sizes;
+//     },
+//   };
+// }
+
+// another way
+// function createPizza(name: string, sizes: string[]) {
+//   return {
+//     name,
+//     sizes,
+//     getAvailableSizes() {
+//       return this.sizes;
+//     },
+//   } as PizzaInterface;
+// }
+
+// pizza5 = createPizza("pepperoni", ["small", "medium"]);
+
+// console.log(pizza5);
+
+//
+// extending the interface
+
+interface Sizes1 {
+  sizes: string[]
+}
+interface PizzaInterface extends Sizes1 {
   name: string;
-  sizes: string[];
   getAvailableSizes(): string[];
 }
 
@@ -397,23 +432,12 @@ function createPizza(name: string, sizes: string[]): PizzaInterface {
     sizes,
     getAvailableSizes() {
       return this.sizes;
-    }
+    },
   };
 }
-
-// another way 
-// function createPizza(name: string, sizes: string[]) {
-//   return {
-//     name,
-//     sizes,
-//     getAvailableSizes() {
-//       return this.sizes;
-//     },
-//   } as PizzaInterface;
-// }
-
 
 
 pizza5 = createPizza("pepperoni", ["small", "medium"]);
 
 console.log(pizza5);
+
