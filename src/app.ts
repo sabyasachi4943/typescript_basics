@@ -361,20 +361,59 @@ console.log(selected)
 // 
 // interfaces
 
+// interface PizzaInterface {
+//   name: string;
+//   sizes: string[];
+// }
+
+// let pizza5: PizzaInterface;
+
+// function createPizza(name: string, sizes: string[]): PizzaInterface{
+//   return {
+//     name,
+//     sizes,
+//   }
+// }
+
+// pizza5 = createPizza('pepperoni', ['small', 'medium']);
+
+// console.log(pizza5)
+
+
+// 
+// interfaces with functions
 interface PizzaInterface {
   name: string;
   sizes: string[];
+  getAvailableSizes(): string[];
 }
 
 let pizza5: PizzaInterface;
 
-function createPizza(name: string, sizes: string[]): PizzaInterface{
+// one way
+function createPizza(name: string, sizes: string[]): PizzaInterface {
   return {
     name,
     sizes,
-  }
+    getAvailableSizes() {
+      return this.sizes;
+    }
+  };
 }
 
-pizza5 = createPizza('pepperoni', ['small', 'medium']);
+// another way 
+// function createPizza(name: string, sizes: string[]) {
+//   return {
+//     name,
+//     sizes,
+//     getAvailableSizes() {
+//       return this.sizes;
+//     },
+//   } as PizzaInterface;
+// }
 
-console.log(pizza5)
+
+
+pizza5 = createPizza("pepperoni", ["small", "medium"]);
+
+console.log(pizza5);

@@ -239,11 +239,25 @@ function updateSize(size) {
 updateSize("medium" /* Sizes2.Medium */);
 console.log(selected);
 var pizza5;
+// one way
 function createPizza(name, sizes) {
     return {
         name: name,
         sizes: sizes,
+        getAvailableSizes: function () {
+            return this.sizes;
+        }
     };
 }
-pizza5 = createPizza('pepperoni', ['small', 'medium']);
+// another way 
+// function createPizza(name: string, sizes: string[]) {
+//   return {
+//     name,
+//     sizes,
+//     getAvailableSizes() {
+//       return this.sizes;
+//     },
+//   } as PizzaInterface;
+// }
+pizza5 = createPizza("pepperoni", ["small", "medium"]);
 console.log(pizza5);
