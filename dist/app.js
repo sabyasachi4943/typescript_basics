@@ -255,13 +255,25 @@ pizza5[1] = "xyz";
 pizza5.toppings = 1;
 //
 // class es6 version
-function Pizza(name) {
-    this.name = name;
-    this.toppings = [];
-}
-Pizza.prototype.addTopping = function addTopping(topping) {
-    this.toppings.push(topping);
-};
+// old way
+// function Pizza(name: string) {
+//   this.name = name;
+//   this.toppings = [];
+// }
+// Pizza.prototype.addTopping = function addTopping(topping: string) {
+//   this.toppings.push(topping)
+// }
+// new way
+var Pizza = /** @class */ (function () {
+    function Pizza(name) {
+        this.toppings = [];
+        this.name = name;
+    }
+    Pizza.prototype.addTopping = function (topping) {
+        this.toppings.push(topping);
+    };
+    return Pizza;
+}());
 var pizza6 = new Pizza('Pepperoni');
 pizza6.addTopping('pepperoni');
 console.log(pizza6);

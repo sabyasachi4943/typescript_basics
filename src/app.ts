@@ -451,14 +451,29 @@ pizza5.toppings = 1;
 //
 // class es6 version
 // old way
-function Pizza(name: string) {
-  this.name = name;
-  this.toppings = [];
-}
+// function Pizza(name: string) {
+//   this.name = name;
+//   this.toppings = [];
+// }
 
-Pizza.prototype.addTopping = function addTopping(topping: string) {
-  this.toppings.push(topping)
+// Pizza.prototype.addTopping = function addTopping(topping: string) {
+//   this.toppings.push(topping)
 
+// }
+
+// new way
+class Pizza {
+  name: string;
+  toppings: string[] = []
+
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  addTopping(topping: string) {
+    this.toppings.push(topping);
+  }
 }
 
 const pizza6 = new Pizza('Pepperoni')
