@@ -416,14 +416,14 @@ console.log(selected);
 // extending the interface
 
 interface Sizes1 {
-  sizes: string[]
+  sizes: string[];
 }
 interface PizzaInterface extends Sizes1 {
   name: string;
-  // optional property 
+  // optional property
   toppings?: number;
   getAvailableSizes(): string[];
-  [key: number]: string
+  [key: number]: string;
   // dictionary: {
   //   [key: string]: any;
   // }
@@ -442,10 +442,26 @@ function createPizza(name: string, sizes: string[]): PizzaInterface {
   };
 }
 
-
 pizza5 = createPizza("pepperoni", ["small", "medium"]);
 
 console.log(pizza5);
-pizza5[1] ='xyz'
-pizza5.toppings =1
+pizza5[1] = "xyz";
+pizza5.toppings = 1;
 
+//
+// class es6 version
+// old way
+function Pizza(name: string) {
+  this.name = name;
+  this.toppings = [];
+}
+
+Pizza.prototype.addTopping = function addTopping(topping: string) {
+  this.toppings.push(topping)
+
+}
+
+const pizza6 = new Pizza('Pepperoni')
+pizza6.addTopping('pepperoni')
+
+console.log(pizza6);

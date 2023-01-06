@@ -199,17 +199,17 @@ sizes = [1, 2, 3];
 // generic type
 var toppings2;
 toppings2 = ["pepperoni", "bacon", "chilli"];
-// 
-// tuple type 
+//
+// tuple type
 // in tuple type the types are inside of the third bracket
 var pizza3;
-pizza3 = ['pepperoni', 20, true];
-var pizzaSize2 = 'small';
+pizza3 = ["pepperoni", 20, true];
+var pizzaSize2 = "small";
 var selectSize2 = function (x) {
     pizzaSize = x;
 };
-selectSize2('medium');
-var pizza4 = { name: 'Blazing Inferno', toppings: 5 };
+selectSize2("medium");
+var pizza4 = { name: "Blazing Inferno", toppings: 5 };
 var serialized = JSON.stringify(pizza4);
 // function getNameFromJSON(obj: string) {
 //   return (<Pizza3>JSON.parse(obj)).name;
@@ -218,7 +218,7 @@ function getNameFromJSON(obj) {
     return JSON.parse(obj).name;
 }
 getNameFromJSON(serialized);
-// 
+//
 // enum type
 var Sizes;
 (function (Sizes) {
@@ -246,18 +246,22 @@ function createPizza(name, sizes) {
         sizes: sizes,
         getAvailableSizes: function () {
             return this.sizes;
-        }
+        },
     };
 }
-// another way 
-// function createPizza(name: string, sizes: string[]) {
-//   return {
-//     name,
-//     sizes,
-//     getAvailableSizes() {
-//       return this.sizes;
-//     },
-//   } as PizzaInterface;
-// }
 pizza5 = createPizza("pepperoni", ["small", "medium"]);
 console.log(pizza5);
+pizza5[1] = "xyz";
+pizza5.toppings = 1;
+//
+// class es6 version
+function Pizza(name) {
+    this.name = name;
+    this.toppings = [];
+}
+Pizza.prototype.addTopping = function addTopping(topping) {
+    this.toppings.push(topping);
+};
+var pizza6 = new Pizza('Pepperoni');
+pizza6.addTopping('pepperoni');
+console.log(pizza6);
